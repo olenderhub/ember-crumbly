@@ -1,7 +1,6 @@
 import Component from '@ember/component';
 import { copy } from 'ember-copy';
 import { assert } from '@ember/debug';
-import { deprecate } from '@ember/application/deprecations';
 import { typeOf, isPresent } from '@ember/utils';
 import {
   setProperties,
@@ -50,9 +49,6 @@ export default Component.extend({
     get() {
       let className = 'breadcrumb';
       const outputStyle = getWithDefault(this, 'outputStyle', '');
-      if (isPresent(outputStyle)) {
-        deprecate('outputStyle option will be deprecated in the next major release', false, { id: 'ember-crumbly.outputStyle', until: '2.0.0' });
-      }
       const lowerCaseOutputStyle = outputStyle.toLowerCase();
 
       if (lowerCaseOutputStyle === 'foundation') {
